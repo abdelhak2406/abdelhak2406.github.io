@@ -1,0 +1,4 @@
+baseURL = 'http://abdelhak2406.github.io/'
+languageCode = 'en-us'
+title = 'Abdelhaks website'
+theme = "ananke"
