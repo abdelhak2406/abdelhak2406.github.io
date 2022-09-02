@@ -1,4 +1,52 @@
 baseURL = 'http://abdelhak2406.github.io/'
 languageCode = 'en-us'
 title = 'Abdelhaks website'
-theme = "ananke"
+
+theme = "gokarna"
+
+# Automatically generate robots.txt
+enableRobotsTXT = true
+
+[menu]
+  [[menu.main]]
+    # Unique identifier for a menu item
+    identifier = "posts"
+
+    url = "/posts/"
+    
+    # You can add extra information before the name (HTML format is supported), such as icons
+    pre = ""
+
+    # You can add extra information after the name (HTML format is supported), such as icons
+    post = ""
+
+    # Display name
+    name = "Posts"
+
+    # Weights are used to determine the ordering
+    weight = 2
+  
+  [[menu.main]]
+    identifier = "TuLearn"
+    name = "TuLearn"
+    url = "/learn/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+    
+  [[menu.main]]
+    identifier = "github"
+    url = "https://github.com/abdelhak2406"
+    weight = 4
+    
+    # We use feather-icons: https://feathericons.com/
+    pre = "<span data-feather='github'></span>"
+
+
+# here is the parmamter to add into the footer!
+#[params]
+#  footer = "Abdelhak here this is a footer"
