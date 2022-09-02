@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Mr Dafoe
+- Font Author: Copyright (c) 2004 Alejandro Paul (sudtipos@sudtipos.com), with Reserved Font Name "Mr Dafoe"
+- Font Source: http://fonts.gstatic.com/s/mrdafoe/v14/lJwE-pIzkS5NXuMMrGiqg7MCxz_C.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
