@@ -33,6 +33,12 @@ enableRobotsTXT = true
     weight = 1
   
   [[menu.main]]
+    identifier = "awesome-website"
+    name = "AwesomeWS"
+    url = "/awesome-website/"
+    weight = 1
+  
+  [[menu.main]]
     identifier = "tags"
     name = "Tags"
     url = "/tags/"
