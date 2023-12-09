@@ -1,4 +1,4 @@
-baseURL = 'http://abdelhak2406.github.io/'
+baseURL = 'https://abdelhak2406.github.io/'
 languageCode = 'en-us'
 title = "Abdelhak's website"
 
@@ -24,40 +24,41 @@ enableRobotsTXT = true
     name = "Posts"
 
     # Weights are used to determine the ordering
+    weight = 1
+  
+  [[menu.main]]
+    identifier = "learning"
+    name = "learning"
+    url = "/learn/"
     weight = 2
   
   [[menu.main]]
-    identifier = "TuLearn"
-    name = "TuLearn"
-    url = "/learn/"
-    weight = 1
-  
-  [[menu.main]]
     identifier = "awesome-website"
-    name = "AwesomeWS"
-    url = "/awesome-website/"
-    weight = 1
+    name = "Awesome websites"
+    url = "/awesome-websites/"
+    weight = 3
   
   [[menu.main]]
     identifier = "tags"
     name = "Tags"
     url = "/tags/"
-    weight = 3
+    weight = 4
     
   [[menu.main]]
     identifier = "github"
     url = "https://github.com/abdelhak2406"
-    weight = 4
+    weight = 5
     
     # We use feather-icons: https://feathericons.com/
     pre = "<span data-feather='github'></span>"
 
 
 # here is the parmamter to add into the footer!
-[params]
+#[params]
+
 #  footer = "Abdelhak here this is a footer"
 #TODO: add some more important stuff in here!
-  description = """Welcome to my website, My name is Abdelhak Aissat i'm a post graduated student in Artificial intelligence"""
+#description = """Welcome to my website, My name is Abdelhak Aissat i'm a post graduated student in Artificial intelligence"""
 
 
 
