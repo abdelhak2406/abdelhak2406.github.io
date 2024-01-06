@@ -25,3 +25,18 @@ type: "post"
 
 - [jupytext](https://jupytext.readthedocs.io/en/latest/)
 
+
+# Cast
+
+- https://fcast.org/
+
+# Pdf readers
+
+- https://pwmt.org/projects/zathura/
+
+# productivity 
+
+- https://logseq.com/
+
+# coding :
+- https://github.com/eranif/codelite
