@@ -1,8 +1,6 @@
 ---
 title: "Awesome Websites"
-date: 2023-08-14T16:07:46+01:00
-draft: false
-type: "post"
+date: 2023-08-14
 ---
 
 # Git related
