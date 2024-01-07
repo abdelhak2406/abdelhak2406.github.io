@@ -6,21 +6,22 @@ tags: ["linux","iac","automation"]
 
 ## It's all about Automation!
 
-- Managing LARGE infrastrucutre is HARD!
+- Managing LARGE infrastructures is HARD!
 	- imagine having 100s of servers! that you need to configure!
 	- imagine you DONT know what's inside evey server! 
-	- Hay it works here but not there BUT WHYY!!
-		- someone added this dark package in server numbre 32 and 80 but it isnt anywhere else! 
-		- WHAT CAN WE DOOOO AAAAAAAAAAAA
+	- Hay it works here but not there BUT WHYY!!!!
+		- someone added this dark package in server number 32 and 80 but it isnt anywhere else! 
+		- **WHAT CAN WE DOOOO AAAAAAAAAAAAAAAAAAa!!**
+		
 	- BASH SCRIPTS EVERYWHERE! 
 		- **Idempotency** : running the program multiple times and have it produice the same result
 			 - https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html#desired-state-and-idempotency
 		 - example `mkdir example`
-		 - if we want tht command to be idempotent `mkdir -p example` which means if the example exist well nothing will be done! 
-		 - With ansible idempotency is backed it soo, no zillion if statment in your shell script and more easier readability and therefore maintainability!
-		 - Manual approaches to managing IT infrastructure, such as using scripts or SSH, can be time-consuming, error-prone, and difficult to scale. These methods also lack the ability to enforce standardized processes and configurations, making it challenging to maintain a consistent and secure environment.
----
---> Automation tools are here for that!!
+			 - if we want that command to be idempotent `mkdir -p example` which means if the example exist well nothing will be done! 
+			 - With ansible, idempotency is backed in, sooooo no zillion if statment in your shell script and more easier readability and therefore maintainability!
+			 - Manual approaches to managing IT infrastructure, such as using scripts or SSH, can be time-consuming, error-prone, and difficult to scale. These methods also lack the ability to enforce standardized processes and configurations, making it challenging to maintain a consistent and secure environment.
+
+### ==> Automation tools are here for that!!
 
 - Automation tools provide a way to automate repetitive, time-consuming tasks such as 
 	- server provisioning,
@@ -29,14 +30,17 @@ tags: ["linux","iac","automation"]
 	- Automation tools can help ensure consistency and reliability in IT operations. By using automation to enforce standardized processes and configurations, IT teams can minimize errors and reduce the risk of downtime and security breaches.
 	
 
----
 
 ## What is ansible?
-Ansible is an 
-- open source, IT automation software application written in Python. 
-- It can configure systems, deploy software, and orchestrate advanced workflows to support application deployment, system updates, and more.
 
-Ansible’s main strengths are 
+Ansible is an 
+- Open source, IT automation software application written in Python. 
+- It can 
+	- configure systems,
+	- deploy software, 
+	- and orchestrate advanced workflows to support application deployment, system updates, and more.
+
+Ansible’s main strengths are :
 - simplicity and ease of use. 
 - It also has a strong focus on security and reliability, featuring minimal moving parts. It uses OpenSSH for transport 
 - Uses a human-readable language that is designed for getting started quickly without a lot of training.
@@ -48,8 +52,8 @@ Ansible’s main strengths are
 ### Ansible architecture
 
 - Where to install ansible? in the host? on the server machines?? WHERE??
-	- You only need it in the control host (or whatever it's called!)
-	- It connects and does it's magic using ssh,it doesn't need anything else!
+	- You only need it in the control host (or whatever it's called! (the workstation in the first image below))
+	- It connects and does it's magic using ssh, it doesn't need anything else!
 
 
 <img class="thumbnailshadow" src="img/workstation_server.png"/>
@@ -60,17 +64,17 @@ Ansible’s main strengths are
 
 ### Installation 
 
-YOu only need to install it on the Managment node machine!
+You only need to install it on the Management node machine!
 - Using Python pip 
-	1. Usign pip (check if pip is availible)
+	1. Using pip (check if pip is available)
 		- ensure pip is availible https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#ensuring-pip-is-available
-		- then install `python3 -m pip install --user ansible`
+		- then install: `python3 -m pip install --user ansible`
 			 
 	2. On [specific operationg System](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-specific-operating-systems)
 		- WinDows... CANNOT RUN only Manage Windows hosts! but you can use WSL https://docs.ansible.com/ansible/latest/os_guide/windows_faq.html#can-ansible-run-on-windows
 		- Fedora
 			 - `sudo dnf install ansible`
-		- Uuntu: (using Ppa)
+		- Ubuntu: (using Ppa)
 		```bash
 		sudo apt update
 		sudo apt install software-properties-common
@@ -78,12 +82,11 @@ YOu only need to install it on the Managment node machine!
 		sudo apt install ansible
 		```
 
-
-### Keyworks
+### Keywords
 - Modules
 - roles
 - tags
-- ansible playbooks
+- Ansible playbooks
 - plays
 - tasks
 - hosts
@@ -92,13 +95,10 @@ YOu only need to install it on the Managment node machine!
 - handlers
 
 
-
-
-
-
 ### Basic SSH!
 
-Since ansible uses ssh to connect into a remote server. We need to know a little bit about ssh so.
+Since Ansible uses ssh to connect into a remote server. We need to know a little bit about ssh so.
+
 1. Connect through ssh with terminal
 ```bash
  ssh user@ipaddress
@@ -122,7 +122,7 @@ ssh-keygen -t ed25519 -f  ~/.ssh/ansible2 -C "this is a comment"
 ssh-copy-id -i path/to/key.pub ipadress
 ssh-copy-id -i ~/.ssh/ansible.pub 123.123.123.123
 ```
-- check `~/.ssh/autorized_keys`
+5. check `~/.ssh/autorized_keys`
 
 - **Fedora Workstation**
 	- https://www.linuxcapable.com/how-to-install-and-enable-ssh-on-fedora-linux/
@@ -130,11 +130,11 @@ ssh-copy-id -i ~/.ssh/ansible.pub 123.123.123.123
 	- you need to enable and start sshd
 	- `sudo ss -lt` : check open ports? i think
 
-
 ## Running Ah-Hoc Commands
 
 - https://docs.ansible.com/ansible/latest/command_guide/cheatsheet.html#ansible-cli-cheatsheet
 - Now that we connected throuh ssh and granted ourself the permissions to connect to the server let's run some basic commands:
+
 ```shell
 ansible all --key-file ~/.ssh/ansible -i inventory -m ping
 ansible rocky_servers --key-file -i inventory -m ping
@@ -144,7 +144,7 @@ ansible rocky_servers --key-file -i inventory -m ping
 
 The inventory is simply a file where we define all our servers and cloud instances that Ansible will manage
 - How to create it ?
-	- We justt create a file and put the ip adress for example :
+	- We just create a file and put the IP adress for example :
 ```shell
 [ubuntu_servers]
 192.168.122.165
@@ -159,12 +159,12 @@ or witout any specifications
 192.168.122.153
 ```
 
-- ansible supports several ways to have inventories :https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html#how-to-build-your-inventory
+- Ansible supports several ways to have inventories: https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html#how-to-build-your-inventory
 
 
-### cfg file!
+### cfg file
 
-Is a file in which you can define some cofiguration such as the path to the ssh key, the remote_username that ansible will use to connect to the servers
+Is a file in which you can define some configuration such as the path to the ssh key, the `remote_username` that ansible will use to connect to the servers
 the path to the inventory file, and many other things..
 - https://docs.ansible.com/ansible/latest/reference_appendices/config.html#ansible-configuration-settings
 - NAME IT `ansible.cfg`:  that's how ansible does it.
@@ -184,20 +184,20 @@ ansible all -m ping
 ```
 
 - List all  your adresses
-```rust
+```bash
 ansible all --list-hosts
 ansible ubuntu_servers --list-all # specify category
 ```
 
 - Get a ton of informations about the servers!
-```rust
+```bash
 ansible all -m gather_facts
 ansible all -m gather_facts --limit 192.168.122.153 
 ansible localhost -m gather_facts # localhost facts!
 ```
 
 - Update servers
-```shell
+```bash
 ansible all -m apt -a update_cache=true --become --ask-become-pass
 ```
  this is the equivalent of doit `sudo apt update` 
@@ -217,15 +217,13 @@ For example the module `ping`
 	- `ansible localhost -m ping`
 
 - the **apt** module is used for installing packages! or updating them  for example
-- Ansible ships with A LOT of modules , but you can also create your own modules or use communty built ones ( check ansible galaxy)
+- Ansible ships with A LOT of modules , but you can also create your own modules or use community built ones ( check ansible galaxy)
 
 #### Arguments
 
 Modules take arguments for example :
 - `ansible all -m apt -a update_cache=true`
 - udate_cache is an argument! which takes the value true
-
-
 
 
 ## Playbooks
@@ -241,14 +239,15 @@ Modules take arguments for example :
 - **Plays** provide a way to organize tasks and modules into logical groups, based on the servers or groups of servers they target. 
 	- For example, a playbook might have a play that installs and configures web servers, and another play that sets up database servers.
 
-A play consists of (genrally!):
-```rust
+A play consists of (generally!):
+
+```yaml
 - name: (optional, but recommended)
   hosts:
   tasks:
 ```
 - update and upgrade (autoremove for removing unused packages)
-```rust
+```yaml
 - name: Update and upgrade packages on Debian/Ubuntu servers
   hosts: my_servers
   become: true
